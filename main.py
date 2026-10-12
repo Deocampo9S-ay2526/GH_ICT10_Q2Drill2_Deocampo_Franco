@@ -16,6 +16,6 @@ def name_finder (e):
    acceptance_checker = cool_kids_members in members
 
 
-   display_message = (f'We regret to inform you that {cool_kids_members} has not been accepted into the Club of Cool Kids.', f'Congratulations! We are pleased to inform you that {cool_kids_members} has been accepted into the Club of Cool Kids!')
+   display_message = (f'We regret to inform you that {cool_kids_members} has not been accepted into the Cool Kids de Manila University.', f'Congratulations! We are pleased to inform you that {cool_kids_members} has been accepted into the Cool Kids de Manila University!')
    display(display_message[acceptance_checker], target='result')
 
