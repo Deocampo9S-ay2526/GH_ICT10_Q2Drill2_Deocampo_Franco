@@ -1,0 +1,235 @@
+/* Custom Reset & Base Setup */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #ffffff;
+    color: #001196;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 60px;
+
+    /* Faint Blue Eagle Background Watermark */
+    background-image: url('eagle.png');
+    background-repeat: no-repeat;
+    background-position: center 60%;
+    background-size: 1000px auto;
+    background-attachment: fixed;
+    background-blend-mode: soft-light;
+    background-color: rgba(255, 255, 255, 0.94);
+}
+
+/* Header Banner Section */
+h1 {
+    width: 100%;
+    background-color: #001196;
+    color: #ffffff;
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: normal;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 25px 10px;
+    box-shadow: 0 4px 15px rgba(0, 17, 150, 0.2);
+    animation: slideDown 0.8s ease-out;
+}
+
+h2 {
+    text-align: center;
+    font-size: 1.2rem;
+    font-style: italic;
+    font-weight: normal;
+    color: #001196;
+    margin-top: 25px;
+    margin-bottom: 35px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    animation: fadeIn 1.2s ease-out;
+}
+
+/* Formal Form Container */
+form {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 550px;
+    padding: 40px;
+    border: 2px solid #001196;
+    box-shadow: 0 12px 35px rgba(0, 17, 150, 0.12);
+    position: relative;
+    animation: fadeInUp 1s ease-out;
+}
+
+/* Double Formal Border Inside Form */
+form::before {
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    border: 1px solid #001196;
+    pointer-events: none;
+}
+
+/* Input Fields */
+input[type="text"] {
+    width: 100%;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.05rem;
+    color: #001196;
+    background-color: #ffffff;
+    border: 1px solid #001196;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]::placeholder {
+    color: rgba(0, 17, 150, 0.45);
+    font-style: italic;
+}
+
+input[type="text"]:focus {
+    background-color: rgba(0, 17, 150, 0.03);
+    border-color: #001196;
+    box-shadow: 0 0 8px rgba(0, 17, 150, 0.25);
+}
+
+/* Rectangular Formal Search Button */
+input[type="button"] {
+    display: block;
+    width: 100%;
+    padding: 14px 0;
+    margin-top: 10px;
+    background-color: #001196;
+    color: #ffffff;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 1px solid #001196;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+input[type="button"]:hover {
+    background-color: #ffffff;
+    color: #001196;
+    box-shadow: 0 4px 12px rgba(0, 17, 150, 0.2);
+}
+
+input[type="button"]:active {
+    transform: scale(0.99);
+}
+
+/* Opening Envelope Animation for #result */
+#result {
+    width: 100%;
+    max-width: 550px;
+    margin-top: 45px;
+    position: relative;
+    background-color: #ffffff;
+    border: 1px solid #001196;
+    padding: 40px 30px 30px 30px;
+    color: #001196;
+    font-size: 1.15rem;
+    line-height: 1.7;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 17, 150, 0.15);
+    
+    /* Letter Unfolding Animation */
+    transform-origin: top center;
+    animation: openEnvelope 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Wax Seal Placement with CKDMU */
+#result::before {
+    content: "CKDMU";
+    position: absolute;
+    top: -28px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 58px;
+    height: 58px;
+    background-color: #001196;
+    color: #ffffff;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 0.65rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 3px double #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 17, 150, 0.4);
+    animation: breakSeal 1.2s ease-out;
+}
+
+#result:empty {
+    display: none;
+}
+
+/* Keyframe Animations */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes openEnvelope {
+    0% {
+        opacity: 0;
+        transform: perspective(600px) rotateX(-90deg) translateY(-20px);
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 1;
+        transform: perspective(600px) rotateX(0deg) translateY(0);
+    }
+}
+
+@keyframes breakSeal {
+    0% {
+        transform: translateX(-50%) scale(0.5);
+        opacity: 0;
+    }
+    60% {
+        transform: translateX(-50%) scale(1.2);
+    }
+    100% {
+        transform: translateX(-50%) scale(1);
+        opacity: 1;
+    }
+}
